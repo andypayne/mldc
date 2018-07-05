@@ -21,4 +21,14 @@ Minimize MSE
 3. Take a small step (learning rate) in the direction of the steepest downward slope
 4. Repeat until every direction is uphill (positive slope)
 
+#### GD Slope
+
+To calc the slope for a weight, multiply:
+
+1. Slope of the loss function with respect to the value at the node we feed into
+2. The value of the node that feeds into our weight
+3. Slope of the activation function with respect to the value we feed into
+
+Slepe of the mean squared loss function with respect to prediction = 2 * (predicted value - actual value) = 2 * error
+
 
