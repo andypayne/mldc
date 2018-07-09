@@ -32,3 +32,22 @@ To calc the slope for a weight, multiply:
 Slepe of the mean squared loss function with respect to prediction = 2 * (predicted value - actual value) = 2 * error
 
 
+## Categorical data
+
+Pandas has the 'category' data type to encode categorical data numerically.
+
+```cat_data = some_data.astype('category')```
+
+To see the underlying  values:
+
+```python
+dummies = pd.get_dummies(cat_data[['label']], prefix_sep='_')  # Also called a binary indicator representation
+```
+
+
+## Loss
+
+The spam problem - if only 1% of email is spam, then a classifier that always returned 'not spam' would be 99% accurate.
+
+So log loss is used, and focus is on minimizing loss, vs maximizing accuracy. It factors in the probability or confidence that a classification is correct. It's better to be less confident than confident and wrong, because confident (high p) classifications are penalized.
+
