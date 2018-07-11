@@ -51,3 +51,11 @@ The spam problem - if only 1% of email is spam, then a classifier that always re
 
 So log loss is used, and focus is on minimizing loss, vs maximizing accuracy. It factors in the probability or confidence that a classification is correct. It's better to be less confident than confident and wrong, because confident (high p) classifications are penalized.
 
+
+## Train/Test Splitting
+
+The standard train-test split won't work well in some situations, for example when in a classification problem the data set has at least one class with a small number of instances. The split might result in all of the instances being in the test data, and the model won't be able to determine classes it's never seen.
+
+So _StratifiedShuffleSplit_ can be used. However, it only works with a single target variable.
+
+
