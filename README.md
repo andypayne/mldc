@@ -59,3 +59,9 @@ The standard train-test split won't work well in some situations, for example wh
 So _StratifiedShuffleSplit_ can be used. However, it only works with a single target variable.
 
 
+## Bag of words in Scikit-learn
+
+CountVectorizer() - tokenizes strings, builds a vocabulary, counts the occurrences of each token in the vocabulary
+
+
+
