@@ -64,4 +64,12 @@ So _StratifiedShuffleSplit_ can be used. However, it only works with a single ta
 CountVectorizer() - tokenizes strings, builds a vocabulary, counts the occurrences of each token in the vocabulary
 
 
+## Pipeline workflow
+
+- Reliable way to go from raw data to trained model
+- Each step is a tuple with two elements
+  - Name: string
+  - Transform: obj implementing .fit() and .transform()
+
+
 
