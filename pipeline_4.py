@@ -9,6 +9,7 @@ from sklearn.pipeline import FeatureUnion
 X_train, X_test, y_train, y_test = train_test_split(sample_df[['numeric', 'with_missing', 'text']], pd.get_dummies(sample_df['label']), random_state=2)
 
 get_text_data = FunctionTransformer(lambda x: x['text'], validate=False)
+#get_text_data = FunctionTransformer(combine_text_columns, validate=False)
 get_numeric_data = FunctionTransformer(lambda x: x[['numeric', 'with_missing']], validate=False)
 
 numeric_pipeline = Pipeline([
