@@ -72,4 +72,21 @@ CountVectorizer() - tokenizes strings, builds a vocabulary, counts the occurrenc
   - Transform: obj implementing .fit() and .transform()
 
 
+## Interaction terms
+
+Interaction terms describe mathematically when tokens appear together.
+
+"English teacher for 2nd grade"
+vs
+"2nd grade - budget for English teacher"
+
+```
+x1 = presence of term 1
+x2 = presence of term 2
+
+a * x1 + b * x2 + c * (x1 * x2)
+```
+
+An interaction term is an added expression for the coexistence of term 1 and term 2, with its own weight (c here). So the presence of both terms can be weighted as more significant than either individual term.
+
 
