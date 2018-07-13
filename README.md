@@ -90,3 +90,8 @@ a * x1 + b * x2 + c * (x1 * x2)
 An interaction term is an added expression for the coexistence of term 1 and term 2, with its own weight (c here). So the presence of both terms can be weighted as more significant than either individual term.
 
 
+## Hashing trick
+
+Useful for dimensionality reduction, to reduce memory usage, etc. Replace text terms by their hashes.
+
+
