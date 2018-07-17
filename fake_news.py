@@ -44,4 +44,56 @@ print(difference)
 print(count_df.equals(tfidf_df))
 
 
+from sklearn import metrics
+from sklearn.naive_bayes import MultinomialNB
+
+nb_classifier = MultinomialNB()
+
+nb_classifier.fit(count_train, y_train)
+pred = nb_classifier.predict(count_test)
+
+score = metrics.accuracy_score(y_test, pred)
+print(score)
+
+cm = metrics.confusion_matrix(y_test, pred, labels=['FAKE', 'REAL'])
+print(cm)
+
+
+
+nb_classifier = MultinomialNB()
+nb_classifier.fit(tfidf_train, y_train)
+pred = nb_classifier.predict(tfidf_test)
+
+score = metrics.accuracy_score(y_test, pred)
+print(score)
+
+cm = metrics.confusion_matrix(y_test, pred, labels=['FAKE', 'REAL'])
+print(cm)
+
+
+
+# Create the list of alphas
+alphas = np.arange(0, 1, 0.1)
+
+def train_and_predict(alpha):
+	nb_classifier = MultinomialNB(alpha=alpha)
+	nb_classifier.fit(tfidf_train, y_train)
+	pred = nb_classifier.predict(tfidf_test)
+	score = metrics.accuracy_score(y_test, pred)
+	return score
+
+for alpha in alphas:
+	print('Alpha: ', alpha)
+	print('Score: ', train_and_predict(alpha))
+	print()
+
+
+class_labels = nb_classifier.classes_
+feature_names = tfidf_vectorizer.get_feature_names()
+# Zip the feature names together with the coefficient array and sort by weights
+feat_with_weights = sorted(zip(nb_classifier.coef_[0], feature_names))
+# Print the first class label and the top 20 feat_with_weights entries
+print(class_labels[0], feat_with_weights[0:20])
+# Print the second class label and the bottom 20 feat_with_weights entries
+print(class_labels[1], feat_with_weights[-20:])
 
