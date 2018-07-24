@@ -21,5 +21,22 @@ pattern_2 = re.compile('.* to (.*) from (.*)')
 # More robust - Dependency parsing - use a parse tree to assign roles
 
 doc = nlp('a flight to Shanghai from Singapore')
+shanghai, singapore = doc[3], doc[5]
+list(shanghai.ancestors)
+# => [from, flight]
+list(singapore.ancestors)
+# => [to, flight]
 
+
+doc = nlp("let's see that jacket in red and some blue jeans")
+items = [doc[4], doc[10]]  # [jacket, jeans]
+colors = [doc[6], doc[9]]  # [red, blue]
+
+for color in colors:
+  for tok in color.ancestors:
+    if tok in items:
+      print("color {} belongs to item {}".format(color, tok))
+      break
+# => color red belongs to item jacket
+#    color blue belongs to item jeans
 
