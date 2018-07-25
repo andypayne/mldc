@@ -95,3 +95,12 @@ An interaction term is an added expression for the coexistence of term 1 and ter
 Useful for dimensionality reduction, to reduce memory usage, etc. Replace text terms by their hashes.
 
 
+# ML-Based Dialogue Systems
+
+- NLU
+- Dialogue state manager
+- API logic - connected to a DB, API, etc
+- Natural language response generator
+
+
+
