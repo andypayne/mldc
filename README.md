@@ -103,4 +103,27 @@ Useful for dimensionality reduction, to reduce memory usage, etc. Replace text t
 - Natural language response generator
 
 
+## Classification
+
+### Binary
+
+Metric for binary classification models - AUC of ROC curve
+Area under the curve of the Receiver Operating Characteristic curve
+x axis = FP rate
+y axis = TP rate
+Higher area = higher TP rate, lower FP rate
+= greater probability that a randomly chosen positive data point will have a higher rank than a randomly chosen negative data point
+
+### Multiclass
+
+Metric for multiclass - accuracy score and confusion matrix
+Accuracy = (tp + tn) / (tp + tn + fp + fn)
+Confusion matrix - rows are actual values, columns are predicted values
+
+## Preprocessing for supervised learning
+
+- Numeric features should be scaled (Z-scored)
+- Categorical features should be encoded (one-hot)
+
+
 
