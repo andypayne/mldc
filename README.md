@@ -126,4 +126,35 @@ Confusion matrix - rows are actual values, columns are predicted values
 - Categorical features should be encoded (one-hot)
 
 
+## Regression
+
+### Common metrics
+
+- Root mean squared error (RMSE)
+- Mean absolute error (MSE)
+
+
+## XGBoost
+
+Base learners are combined as an ensemble meta-model. When combined, the final prediction is nonlinear.
+
+
+### When to use
+
+- Large number of training samples - > 1000 training samples and < 100 features
+  - # features < # training samples
+- Mixture of categorical and numeric features, or only numeric features
+
+### When not to use
+
+- Not ideal for image recognition, computer vision, NLP/NLU
+- # of training samples is significantly smaller than # of features
+
+### Common loss functions in xgboost
+
+- `reg:linear` - regression
+- `reg:logistic` - classification problems when only a decision is desired, with no probability
+- `binary:logistic` - probability rather than just decision
+
+
 
