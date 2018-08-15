@@ -166,5 +166,24 @@ Regularization parameters in XGBoost:
 - alpha - L1 regularization on leaf weights, larger values = more regularization
 - lambda - L2 regularization on leaf weights
 
+### Tuning xgboost
+
+Common tree tunable parameters:
+
+- learning rate/eta - how quickly the model fits the residual error using additional base learners - lower requires more boosting rounds to achieve the same error
+- gamma - min loss reduction to crate a new tree split
+- alpha - L1 regularization on leaf weights
+- lambda - L2 regularization on leaf weights
+- max_depth - max depth per tree
+- subsample - % of samples used per tree - low -> underfitting problems, high -> overfitting
+- colsample_bytree - % of features used per tree - additional regularization
+
+Common linear tunable parameters:
+
+- alpha - L1 regularization on weights
+- lambda - L2 regularization on weights
+- lambda_bias - L2 regularization on bias
+
+The number of boosting rounds is also a tunable parameter on both tree-based and linear-based ensembles.
 
 
