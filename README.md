@@ -156,5 +156,15 @@ Base learners are combined as an ensemble meta-model. When combined, the final p
 - `reg:logistic` - classification problems when only a decision is desired, with no probability
 - `binary:logistic` - probability rather than just decision
 
+### Regularization
+
+Regularization can be a control on model complexity, by penalizing models that are more complex.
+
+Regularization parameters in XGBoost:
+
+- gamma - min loss reduction allowed for a split to occur
+- alpha - L1 regularization on leaf weights, larger values = more regularization
+- lambda - L2 regularization on leaf weights
+
 
 
