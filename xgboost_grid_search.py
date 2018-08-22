@@ -19,3 +19,21 @@ print("Best parameters found: ",grid_mse.best_params_)
 print("Lowest RMSE found: ", np.sqrt(np.abs(grid_mse.best_score_)))
 # Lowest RMSE found:  28530.1829341
 
+
+
+
+housing_dmatrix = xgb.DMatrix(data=X, label=y)
+
+gbm_param_grid = {
+  'colsample_bytree': [0.3, 0.7],
+  'n_estimators': [50],
+  'max_depth': [2, 5]
+}
+
+gbm = xgb.XGBRegressor()
+grid_mse = GridSearchCV(estimator=gbm, param_grid=gbm_param_grid, scoring='neg_mean_squared_error', cv=4, verbose=1)
+grid_mse.fit(X, y)
+
+print("Best parameters found: ", grid_mse.best_params_)
+print("Lowest RMSE found: ", np.sqrt(np.abs(grid_mse.best_score_)))
+
