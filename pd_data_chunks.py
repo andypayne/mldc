@@ -42,3 +42,40 @@ def filter_is_long_trip(data):
   is_long_trip = (data.trip_time_in_secs > 1200)
   return data.loc[is_long_trip]
 
+chunks = []
+
+# build with a for loop:
+for chunk in pd.read_csv(filename, chunksize=1000):
+    chunks.append(filter_is_long_trip(chunk))
+
+# or with a list comprehension:
+chunks = [filter_is_long_trip(chunk)
+          for chunk in pd.read_csv(filename,
+          chunksize=1000) ]
+
+
+len(chunks)
+# 200
+
+lengths = [len(chunk) for chunk in chunks]
+
+lengths[-5:]
+# each has ~100 rows
+# [115, 147, 137, 109, 119]
+
+long_trips_df = pd.concat(chunks)
+long_trips_df.shape
+# (21661, 14)
+
+
+# Plot
+import matplotlib.pyplot as plt
+
+long_trips_df.plot.scatter(x='trip_time_in_secs',
+                           y='trip_distance');
+plt.xlabel('Trip duration [seconds]')
+plt.ylabel('Trip distance [miles]')
+plt.title('NYC Taxi rides over 20 minutes (2013-01-01 to 2013-01-14)')
+plt.show()
+
+
