@@ -142,13 +142,13 @@ Base learners are combined as an ensemble meta-model. When combined, the final p
 ### When to use
 
 - Large number of training samples - > 1000 training samples and < 100 features
-  - # features < # training samples
+  - \# of features < \# of training samples
 - Mixture of categorical and numeric features, or only numeric features
 
 ### When not to use
 
 - Not ideal for image recognition, computer vision, NLP/NLU
-- # of training samples is significantly smaller than # of features
+- \# of training samples is significantly smaller than \# of features
 
 ### Common loss functions in xgboost
 
