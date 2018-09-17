@@ -186,4 +186,19 @@ Common linear tunable parameters:
 
 The number of boosting rounds is also a tunable parameter on both tree-based and linear-based ensembles.
 
+## Dask
+
+### Dask vs Pandas
+
+Questions:
+- How big is the dataset?
+- How much memory is available?
+- How many threads/cores/CPUs are available?
+- Are the relevant Pandas computations/formats supported in the Dask API?
+- Is computation I/O-bound or CPU-bound?
+
+Best use case for Dask is when:
+- The computations are available in Dask
+- The problem size is close to (or over) the limits of RAM, fits on disk
+
 
