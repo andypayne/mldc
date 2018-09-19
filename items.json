@@ -1,0 +1,10 @@
+[
+  {
+    "name": "item1",
+    "content": ["a","b","c"]
+  },
+  {
+    "name": "item2",
+    "content": {"a": 0, "b": 1}
+  }
+]
